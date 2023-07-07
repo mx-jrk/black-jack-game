@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view_models.GameRoomFragment"
+    android:background="@drawable/board"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dealer"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/firstDealerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/secondDealerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/thirdDealerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/fourthDealerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/fifthDealerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/sixthDealerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:src="@drawable/card"
+            android:layout_marginStart="50dp"
+            android:contentDescription="@string/image_error" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="15dp">
+            <Button
+                android:id="@+id/doubleButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/doble"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_gradient_green"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="5dp"/>
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/add"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_gradient_green"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="5dp"/>
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/stop"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/button_gradient_green"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="5dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/whiskeyImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/rack"
+            android:layout_gravity="start"
+            android:contentDescription="@string/image_error" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/player"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:layout_gravity="center" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <ImageView
+            android:id="@+id/sigarImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ashtray"
+            android:contentDescription="@string/image_error" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/firstPlayerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/secondPlayerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/thirdPlayerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/fourthPlayerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/fifthPlayerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+        <ImageView
+            android:id="@+id/sixthPlayerCardImageView"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/image_error" />
+    </LinearLayout>
+
+</LinearLayout>

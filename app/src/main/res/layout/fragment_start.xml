@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    android:orientation="vertical">
+
+    <!-- Текстовое поле для отображения баланса -->
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_gravity="end"
+       android:layout_margin="25dp"
+       tools:ignore="UseCompoundDrawables">
+       <ImageView
+           android:layout_width="40dp"
+           android:layout_height="40dp"
+           android:src="@drawable/coin"
+           android:contentDescription="@string/image_error" />
+       <TextView
+           android:id="@+id/balanceTextView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/balance"
+           android:textColor="#FFFFFF"
+           android:textSize="18sp"
+           android:layout_gravity="center_vertical" />
+   </LinearLayout>
+
+    <!-- Логотип -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="50dp"
+        android:contentDescription="@string/image_error" />
+
+
+
+    <!-- Кнопка "Войти в комнату" -->
+    <Button
+        android:id="@+id/enterRoomButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/join_room"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/button_gradient"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp" />
+
+</LinearLayout>
