@@ -1,4 +1,4 @@
-package com.example.blackjack.ui.view_models;
+package com.example.blackjack.ui;
 
 import android.os.Bundle;
 
