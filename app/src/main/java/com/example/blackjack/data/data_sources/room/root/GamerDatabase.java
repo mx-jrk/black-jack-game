@@ -11,7 +11,7 @@ import com.example.blackjack.data.data_sources.room.entites.GamerEntity;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {GamerEntity.class}, version = 5)
+@Database(entities = {GamerEntity.class}, version = 1)
 public abstract class GamerDatabase extends RoomDatabase {
     public abstract GamerDAO gamerDAO();
 
