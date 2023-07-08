@@ -19,12 +19,12 @@ public class GamerRepository {
     }
 
     public void insert(GamerEntity gamer){
-        GamerDatabase.databaseWriteExecutor.execute(() -> gamerDAO.insert(gamer));
+        gamerDAO.insert(gamer);
     }
 
 
     public void update(GamerEntity gamer){
-        GamerDatabase.databaseWriteExecutor.execute(() -> gamerDAO.update(gamer));
+            gamerDAO.update(gamer);
     }
 
 

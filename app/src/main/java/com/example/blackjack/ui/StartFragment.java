@@ -48,15 +48,13 @@ public class StartFragment extends Fragment {
         //Uploading user information
         gamerViewModel.getGamer().observe(getViewLifecycleOwner(), gamerEntity -> {
             if (gamerEntity == null) {
-                System.out.println(true);
                 gamerViewModel.gamer = new GamerEntity(1000);
-                gamerViewModel.insertGamer(gamerViewModel.gamer);
+                gamerViewModel.isFirstLaunch = true;
             }
             else {
-                System.out.println(false);
                 gamerViewModel.gamer = gamerEntity;
+                gamerViewModel.isFirstLaunch = false;
             }
-
             //Loading cards
             cardViewModel.getAllCards().observe(getViewLifecycleOwner(), cardEntities -> {
                 cardViewModel.cards = cardEntities;

@@ -10,4 +10,8 @@
     <string name="doble">Удвоить!</string>
     <string name="add">Ещё!</string>
     <string name="stop">Стоп!</string>
+    <string name="no">Нет</string>
+    <string name="do_bet">Введите ставку</string>
+    <string name="bet">Поставить!</string>
+    <string name="bet_hint">Ставка</string>
 </resources>

@@ -6,6 +6,8 @@ import androidx.room.PrimaryKey;
 @Entity (tableName = "gamer_table")
 public class GamerEntity {
     @PrimaryKey(autoGenerate = true)
+    public int id;
+
     public int balance;
 
     public GamerEntity(int balance) {

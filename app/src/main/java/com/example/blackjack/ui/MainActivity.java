@@ -37,7 +37,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        gamerViewModel.updateGamer(gamerViewModel.gamer);
+
+        mediaPlayer.pause();
+
+        if (gamerViewModel.isFirstLaunch) gamerViewModel.insertGamer();
+        else gamerViewModel.updateGamer();
+        System.out.println(gamerViewModel.isFirstLaunch);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mediaPlayer.start();
     }
 
     private void playRandomTrack() {
