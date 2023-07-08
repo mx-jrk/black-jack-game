@@ -1,66 +1,64 @@
 package com.example.blackjack.ui;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.blackjack.R;
+import com.example.blackjack.data.data_sources.room.entites.GamerEntity;
+import com.example.blackjack.databinding.FragmentStartBinding;
+import com.example.blackjack.ui.view_models.GamerViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class StartFragment extends Fragment {
+    private FragmentStartBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private NavController navController;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private GamerViewModel gamerViewModel;
 
-    public StartFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment StartFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static StartFragment newInstance(String param1, String param2) {
-        StartFragment fragment = new StartFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentStartBinding.inflate(inflater, container, false);
+
+        NavHostFragment navHostFragment = (NavHostFragment) requireActivity().getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
+        assert navHostFragment != null;
+        navController = navHostFragment.getNavController();
+
+        gamerViewModel = new ViewModelProvider(requireActivity()).get(GamerViewModel.class);
+
+        return binding.getRoot();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_start, container, false);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        gamerViewModel.getGamer().observe(getViewLifecycleOwner(), gamerEntity -> {
+            if (gamerEntity == null) {
+                System.out.println(true);
+                gamerViewModel.gamer = new GamerEntity(1000);
+                gamerViewModel.insertGamer(gamerViewModel.gamer);
+            }
+            else {
+                System.out.println(false);
+                gamerViewModel.gamer = gamerEntity;
+            }
+
+
+            binding.balanceTextView.setText("Баланс: " + gamerViewModel.gamer.balance);
+
+            binding.enterRoomButton.setOnClickListener(view1 -> navController.navigate(R.id.action_startFragment_to_gameRoomFragment));
+        });
+
+
     }
 }
