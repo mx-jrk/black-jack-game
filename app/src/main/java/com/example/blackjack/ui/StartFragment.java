@@ -16,6 +16,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.blackjack.R;
 import com.example.blackjack.data.data_sources.room.entites.GamerEntity;
 import com.example.blackjack.databinding.FragmentStartBinding;
+import com.example.blackjack.ui.view_models.CardViewModel;
 import com.example.blackjack.ui.view_models.GamerViewModel;
 
 public class StartFragment extends Fragment {
@@ -24,6 +25,7 @@ public class StartFragment extends Fragment {
     private NavController navController;
 
     private GamerViewModel gamerViewModel;
+    private CardViewModel cardViewModel;
 
     @Nullable
     @Override
@@ -35,6 +37,7 @@ public class StartFragment extends Fragment {
         navController = navHostFragment.getNavController();
 
         gamerViewModel = new ViewModelProvider(requireActivity()).get(GamerViewModel.class);
+        cardViewModel = new ViewModelProvider(requireActivity()).get(CardViewModel.class);
 
         return binding.getRoot();
     }
@@ -42,6 +45,7 @@ public class StartFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        //Uploading user information
         gamerViewModel.getGamer().observe(getViewLifecycleOwner(), gamerEntity -> {
             if (gamerEntity == null) {
                 System.out.println(true);
@@ -53,10 +57,16 @@ public class StartFragment extends Fragment {
                 gamerViewModel.gamer = gamerEntity;
             }
 
+            //Loading cards
+            cardViewModel.getAllCards().observe(getViewLifecycleOwner(), cardEntities -> {
+                cardViewModel.cards = cardEntities;
 
-            binding.balanceTextView.setText("Баланс: " + gamerViewModel.gamer.balance);
+                //Setting values after loading data
+                binding.balanceTextView.setText("Баланс: " + gamerViewModel.gamer.balance);
 
-            binding.enterRoomButton.setOnClickListener(view1 -> navController.navigate(R.id.action_startFragment_to_gameRoomFragment));
+                binding.enterRoomButton.setOnClickListener(view1 -> navController.navigate(R.id.action_startFragment_to_gameRoomFragment));
+            });
+
         });
 
 
