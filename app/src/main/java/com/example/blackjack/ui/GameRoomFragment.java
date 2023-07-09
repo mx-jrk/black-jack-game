@@ -318,6 +318,7 @@ public class GameRoomFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private void restartGame(String toastMessage){
         gamerViewModel.gamer.balance = player.getBalance();
+        deck = cardViewModel.cards;
         Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_LONG).show();
         try {
             startGame();
