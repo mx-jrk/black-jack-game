@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+\release_key.jks
+\output-metadata.json
